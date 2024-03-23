@@ -2,18 +2,18 @@ import styled from 'styled-components';
 
 // Style
 
-const Wrapper = styled.ul`
+const TodoContainer = styled.ul`
   padding: 0;
   margin-left: 26px;
   margin-right: 26px;
 `;
 
-const Lists = styled.div`
+const TodoItemWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
-const List = styled.li`
+const TodoItem = styled.li`
   font-size: 14px;
   padding: 3px 0;
   list-style-type: none;
@@ -24,13 +24,13 @@ const List = styled.li`
 
 export default function TodoList({ list }) {
   return (
-    <Wrapper>
+    <TodoContainer>
       {list.map((element) => (
-        <Lists key={element}>
-          <List>{element}</List>
+        <TodoItemWrapper key={element}>
+          <TodoItem>{element}</TodoItem>
           <button>Delete</button>
-        </Lists>
+        </TodoItemWrapper>
       ))}
-    </Wrapper>
+    </TodoContainer>
   );
 }
