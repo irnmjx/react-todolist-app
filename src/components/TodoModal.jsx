@@ -40,6 +40,13 @@ export default function TodoModal() {
     setList([...list, todoValue]);
   }
 
+  function clickEnterKey(e) {
+    if (e.key === 'Enter') {
+      setTodoValue('');
+      setList([...list, todoValue]);
+    }
+  }
+
   return (
     <Window className="window">
       <div className="title-bar">
@@ -50,7 +57,12 @@ export default function TodoModal() {
       </div>
 
       <WindowBody className="window-body">
-        <Input type="text" onChange={inputHandler} value={todoValue}></Input>
+        <Input
+          type="text"
+          onKeyDown={(e) => clickEnterKey(e)}
+          onChange={(e) => inputHandler(e)}
+          value={todoValue}
+        ></Input>
         <Button onClick={addTodo}>Add</Button>
       </WindowBody>
       <TodoList list={list} />
