@@ -3,9 +3,9 @@ import '98.css';
 
 function App() {
   return (
-    <>
+    <div className="app">
       <TodoModal />
-    </>
+    </div>
   );
 }
 

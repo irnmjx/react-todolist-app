@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 // Style
 
-const TodoContainer = styled.ul`
+const TodoItemContainer = styled.ul`
   padding: 0;
   margin-left: 26px;
   margin-right: 26px;
@@ -22,15 +22,15 @@ const TodoItem = styled.li`
 
 // Logic
 
-export default function TodoList({ list }) {
+export default function TodoList({ items, onDelete }) {
   return (
-    <TodoContainer>
-      {list.map((element) => (
-        <TodoItemWrapper key={element}>
-          <TodoItem>{element}</TodoItem>
-          <button>Delete</button>
+    <TodoItemContainer>
+      {items.map((item, index) => (
+        <TodoItemWrapper key={index}>
+          <TodoItem>{item}</TodoItem>
+          <button onClick={() => onDelete(index)}>Delete</button>
         </TodoItemWrapper>
       ))}
-    </TodoContainer>
+    </TodoItemContainer>
   );
 }
